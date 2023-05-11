@@ -63,10 +63,11 @@ resource "aws_route_table_association" "public-association" {
   route_table_id   = "${aws_route_table.publicrt.id}"
 }
 
-resource "aws_route_table_association "private-association" {
-  subnet_id   = "${aws_subnet.private-subnet.id}" # Associate the private subnet with the private route table using their IDs
-  route_table_id = "${aws_route_table.privatert.id}"
+resource "aws_route_table_association" "private-association"{
+    subnet_id        = "${aws_subnet.private-subnet.id}"  # Associate the private subnet with the private route table using their IDs
+    route_table_id  = "${aws_route_table.privatert.id}"
 }
+
 
 # Output the ID of the main VPC}
 output "vpc_id" {
